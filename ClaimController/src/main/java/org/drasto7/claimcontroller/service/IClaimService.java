@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.drasto7.claimcontroller.model.Claim;
 
+
 public interface IClaimService {
 
 	List<Claim> getClaimsBySubject(String subjectNumber);

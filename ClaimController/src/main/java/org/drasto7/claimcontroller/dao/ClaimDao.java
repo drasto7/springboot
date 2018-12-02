@@ -32,6 +32,7 @@ public class ClaimDao implements IClaimDao{
 		return result;
 	}
 	
+	@Override
 	public List<Claim> getClaimsByAuthNumber(String authNumber){
 		
 		String hql=" From Claim as claim where claim.authNumber =? Order by claim.claimNumber";

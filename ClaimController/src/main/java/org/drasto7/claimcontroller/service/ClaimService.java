@@ -5,7 +5,9 @@ import java.util.List;
 import org.drasto7.claimcontroller.dao.IClaimDao;
 import org.drasto7.claimcontroller.model.Claim;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ClaimService implements IClaimService{
 	
 	@Autowired

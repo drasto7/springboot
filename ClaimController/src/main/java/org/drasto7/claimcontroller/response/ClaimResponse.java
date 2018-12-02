@@ -15,6 +15,16 @@ public class ClaimResponse implements Serializable {
 	
 	private String claimStatus;
 	
+	private String claimAmount;
+	
+	private String claimStartDate;
+	
+	private String claimEndDate;
+
+	private String subjectId;
+	
+	private String authNumber;
+	
 	public String getClaimNumber() {
 		return claimNumber;
 	}
@@ -71,15 +81,7 @@ public class ClaimResponse implements Serializable {
 		this.authNumber = authNumber;
 	}
 
-	private String claimAmount;
-	
-	private String claimStartDate;
-	
-	private String claimEndDate;
 
-	private String subjectId;
-	
-	private String authNumber;
 	
 
 
