@@ -70,7 +70,7 @@ public class ClaimController {
 		
 	}
 	
-	@DeleteMapping("claimByAuthNum/{claimNumber}")
+	@DeleteMapping("deleteClaimByClaimNum/{claimNumber}")
 	public ResponseEntity<?> deleteClaimByClaimNumber(@PathVariable("claimNumber") String claimNumber)
 	{
 		claimService.deleteClaimByClaimNumber(claimNumber);
