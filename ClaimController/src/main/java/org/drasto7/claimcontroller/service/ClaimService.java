@@ -2,6 +2,7 @@ package org.drasto7.claimcontroller.service;
 
 import java.util.List;
 
+import org.drasto7.claimcontroller.dao.ClaimJPARepository;
 import org.drasto7.claimcontroller.dao.IClaimDao;
 import org.drasto7.claimcontroller.model.Claim;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,9 @@ public class ClaimService implements IClaimService{
 	
 	@Autowired
 	private IClaimDao claimDao;
+	
+	@Autowired
+	private ClaimJPARepository claimRepository;
 
 	@Override
 	public List<Claim> getClaimsBySubject(String subjectNumber) {
@@ -29,6 +33,17 @@ public class ClaimService implements IClaimService{
 	public List<Claim> getClaimsByAuthNumber(String authNumber) {
 		
 		return claimDao.getClaimsByAuthNumber(authNumber);
+	}
+	
+	@Override
+	public Claim saveClaim(Claim claim){
+		return claimRepository.save(claim);
+		
+	}
+	
+	@Override
+	public void deleteClaimByClaimNumber(String claimNumber){
+		claimRepository.delete(claimNumber);
 	}
 
 }

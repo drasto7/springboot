@@ -10,5 +10,8 @@ public interface IClaimService {
 	List<Claim> getClaimsBySubject(String subjectNumber);
 	Claim getClaimByClaimNumber(String claimNumber);
 	List<Claim> getClaimsByAuthNumber(String authNumber);
+	
+	Claim saveClaim(Claim claim);
+	void deleteClaimByClaimNumber(String claimNumber);
 
 }
