@@ -1,4 +1,4 @@
-package org.drasto7.claimcontrolller.exception;
+package org.drasto7.claimcontroller.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

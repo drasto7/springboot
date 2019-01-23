@@ -1,4 +1,4 @@
-package org.drasto7.claimcontrolller.exception;
+package org.drasto7.claimcontroller.exception;
 
 import java.util.Date;
 

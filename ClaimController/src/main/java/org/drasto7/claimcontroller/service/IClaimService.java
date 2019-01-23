@@ -2,8 +2,8 @@ package org.drasto7.claimcontroller.service;
 
 import java.util.List;
 
+import org.drasto7.claimcontroller.exception.ResourceNotFoundException;
 import org.drasto7.claimcontroller.model.Claim;
-import org.drasto7.claimcontrolller.exception.ResourceNotFoundException;
 
 
 public interface IClaimService {

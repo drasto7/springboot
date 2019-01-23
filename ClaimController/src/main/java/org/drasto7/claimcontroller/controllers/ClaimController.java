@@ -2,9 +2,9 @@ package org.drasto7.claimcontroller.controllers;
 
 import java.util.List;
 
+import org.drasto7.claimcontroller.exception.ResourceNotFoundException;
 import org.drasto7.claimcontroller.model.Claim;
 import org.drasto7.claimcontroller.service.IClaimService;
-import org.drasto7.claimcontrolller.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
