@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.drasto7.claimcontroller.model.Claim;
 import org.drasto7.claimcontroller.service.IClaimService;
+import org.drasto7.claimcontrolller.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,20 +28,9 @@ public class ClaimController {
 	public ResponseEntity<List<Claim>> getClaimBySubject(@PathVariable("subjectId") String subjectNumber)
 	{
 		List<Claim> claimList = claimService.getClaimsBySubject(subjectNumber);
-	/*	List<ClaimResponse> claimResponseList = new ArrayList<ClaimResponse>();
-		for(Claim claim:claimList){
-			ClaimResponse claimResponse= new ClaimResponse();
-			claimResponse.setAuthNumber(claim.getAuthNumber());
-			claimResponse.setClaimAmount(claim.getClaimAmount());
-			claimResponse.setClaimEndDate(claim.getClaimEndDate());
-			claimResponse.setClaimNumber(claim.getClaimNumber());
-			claimResponse.setClaimStartDate(claim.getClaimStartDate());
-			claimResponse.setClaimStatus(claim.getClaimStatus());
-			claimResponse.setSubjectId(claim.getSubjectId());
-			claimResponseList.add(claimResponse);
-		}*/
 		ResponseEntity<List<Claim>> response =
 				new ResponseEntity<List<Claim>>(claimList,HttpStatus.FOUND);
+		
 		return response;
 	
 		
@@ -72,6 +62,7 @@ public class ClaimController {
 	
 	@DeleteMapping("deleteClaimByClaimNum/{claimNumber}")
 	public ResponseEntity<?> deleteClaimByClaimNumber(@PathVariable("claimNumber") String claimNumber)
+	throws ResourceNotFoundException
 	{
 		claimService.deleteClaimByClaimNumber(claimNumber);
 		ResponseEntity<?> response = new ResponseEntity<>(HttpStatus.OK);

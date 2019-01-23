@@ -3,6 +3,7 @@ package org.drasto7.claimcontroller.service;
 import java.util.List;
 
 import org.drasto7.claimcontroller.model.Claim;
+import org.drasto7.claimcontrolller.exception.ResourceNotFoundException;
 
 
 public interface IClaimService {
@@ -12,6 +13,6 @@ public interface IClaimService {
 	List<Claim> getClaimsByAuthNumber(String authNumber);
 	
 	Claim saveClaim(Claim claim);
-	void deleteClaimByClaimNumber(String claimNumber);
+	void deleteClaimByClaimNumber(String claimNumber)throws ResourceNotFoundException;
 
 }

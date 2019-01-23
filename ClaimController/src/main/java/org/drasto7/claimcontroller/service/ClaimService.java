@@ -5,6 +5,7 @@ import java.util.List;
 import org.drasto7.claimcontroller.dao.ClaimJPARepository;
 import org.drasto7.claimcontroller.dao.IClaimDao;
 import org.drasto7.claimcontroller.model.Claim;
+import org.drasto7.claimcontrolller.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,8 +43,10 @@ public class ClaimService implements IClaimService{
 	}
 	
 	@Override
-	public void deleteClaimByClaimNumber(String claimNumber){
-		claimRepository.delete(claimNumber);
+	public void deleteClaimByClaimNumber(String claimNumber) throws ResourceNotFoundException{
+		claimRepository.findById(claimNumber).orElseThrow(()->new ResourceNotFoundException("Claim Not found for this claim Number "+claimNumber ));
+		claimRepository.deleteById(claimNumber);
+		
 	}
 
 }
