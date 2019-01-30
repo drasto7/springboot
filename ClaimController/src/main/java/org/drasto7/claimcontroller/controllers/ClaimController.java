@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("claim/v1")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ClaimController {
 	
 	@Autowired
@@ -29,7 +31,7 @@ public class ClaimController {
 	{
 		List<Claim> claimList = claimService.getClaimsBySubject(subjectNumber);
 		ResponseEntity<List<Claim>> response =
-				new ResponseEntity<List<Claim>>(claimList,HttpStatus.FOUND);
+				new ResponseEntity<List<Claim>>(claimList,HttpStatus.OK);
 		
 		return response;
 	
@@ -40,15 +42,16 @@ public class ClaimController {
 	public ResponseEntity<Claim> getClaimByClaimNumber(@PathVariable("claimNum") String claimNum)
 	{
 		Claim claim = claimService.getClaimByClaimNumber(claimNum);
-		ResponseEntity<Claim> response = new ResponseEntity<Claim>(claim,HttpStatus.FOUND);
+		ResponseEntity<Claim> response = new ResponseEntity<Claim>(claim,HttpStatus.OK);
 		return response;
+		
 	}
 	
 	@GetMapping("claimByAuthNum/{authNum}")
 	public ResponseEntity<List<Claim>> getClaimByAuthNumber(@PathVariable("authNum") String authNumber)
 	{
 		List<Claim> claimList = claimService.getClaimsByAuthNumber(authNumber);
-		ResponseEntity<List<Claim>> response = new ResponseEntity<List<Claim>>(claimList,HttpStatus.FOUND);
+		ResponseEntity<List<Claim>> response = new ResponseEntity<List<Claim>>(claimList,HttpStatus.OK);
 		return response;
 	}
 	
